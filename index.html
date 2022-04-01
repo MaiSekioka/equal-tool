@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>均等割ツール</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<div class="contents-wrapper">
+    <nav class="nav-wrapper">
+      <div class="nav-inner">
+        <h1 class="logo">均等割</h1>
+        <button class="btn inc-btn" id="incClonesBtn">1組増やす</button>
+        <button class="btn dec-btn" id="decClonesBtn">1組減らす</button>
+        <button class="btn calc-equal-btn" id="calcEqualBtn">均等割</button>
+
+          <table class="example-card">
+            <tr>
+              <td class="card-heading">1. 元のプレーフィ</td>
+            </tr>
+            <tr>
+              <td class="card-heading">2. 均等割後の金額</td>
+            </tr>
+            <tr>
+              <td class="card-heading">3. 調整金(税抜)</td>
+            </tr>
+          </table>
+  
+        <div class="calc-information-box">
+          <p class="amount-fee-text">総合計　：　<b id="amountFee"></b> </p>
+          <p class="players">プレイヤー数　： <b id="playerCount"></b></p>
+        </div>
+        <button class="btn reset-form-btn" id="resetFormBtn">全てをリセット</button>
+      </div>
+    </nav>
+    <section class="calc-form-wrapper">
+      <h2 class="section-title">プレーフィー入力</h2>
+      <div class="primary-playfee-wrapper" id="primaryPlayfeeWrapper">
+        
+      </div>
+      <!-- プレーフィー入力フォームテンプレートここから -->
+        <div id="templatePlayfees" class="primary-playfees">
+          <input type="number" class="primary-playfee no-spin">
+          <input type="number" class="primary-playfee no-spin">
+          <input type="number" class="primary-playfee no-spin">
+          <input type="number" class="primary-playfee no-spin">
+        </div>
+      <!-- プレーフィー入力フォームテンプレートここまで -->
+
+      <h2 class="section-title">算出結果</h2>
+      <div class="result-card-wrapper" id="resultCardWrapper">
+        
+      </div>
+
+      <!-- 結果カードテンプレートここから -->
+      <div class="result-cards" id="templateResultCards">
+        <table class="result-card">
+          <tr>
+            <td class="first-playfee"></td>
+          </tr>
+          <tr>
+            <td class="last-playfee"></td>
+          </tr>
+          <tr>
+            <td class="adjustment"></td>
+          </tr>
+        </table>
+        <!-- /.result-card -->
+      </div>
+      <!-- /#resultCards.result-cards --> 
+      <!-- 結果カードテンプレートここまで -->
+
+    </section>
+
+
+    <button id="helperBtn" class="helper-btn">？</button>
+    <!-- /#helperBtn.helper-btn -->
+
+
+  <!-- モーダルウィンドウここから -->
+    <div id="faqModalWrapper" class="faq-modal-wrapper">
+    <button id="closeBtn" class="close-btn"></button>
+    <!-- /#closeBtn.close-btn -->
+  
+    <div id="faq-modal" class="faq-modal">
+      <h2 class="section-title">使い方</h2>
+      <!-- /.section-title -->
+      <p class="faq-text">1. フォームにプレーフィーを入力します。<br>
+      必要に応じて組数の増減を行ってください。</p>
+      <p class="faq-text">2. 入力ができたら、均等割ボタンをクリックします</p>
+      <p class="faq-text">3. 結果欄の調整金部分(3段目)をトリプルクリック、コピーして使用します</p>
+      <br>
+      <p class="faq-text">※ランチ付きの場合は全員ランチ付の金額にして入力を行ってください。</p>
+      <!-- /.faq-text -->
+      <h2 class="section-title">注意事項</h2>
+      <!-- /.section-title -->
+      <p class="faq-text">
+        一度計算を行ったら、<b>必ず「全てをリセット」ボタンを押してから<br>
+        次の計算を行ってください。</b><br>
+        前回の計算での設定が残ったままになり、エラー・金額ミスの原因となります。</p>
+      <p class="faq-text">
+        調整金の10円単位部分は左上から順に自動振り分けされます。<br>
+        個別の金額調整を振り分けることはできません。<br>
+        均等割後の金額をもとに、手動で計算を行ってください。
+      </p>
+      <p class="faq-text">キャディフィのみ別払いの時には、キャディフィを差引き、<br>セルフの状態で計算を行ってください。</p>
+      <p class="faq-text">一度行った計算を保存する機能はありません。</p>
+      <!-- /.faq-text -->
+    </div>
+    <!-- /#faq-modal.faq-modal -->
+  </div>
+  <!-- /#faqModalWrapper モーダルウィンドウここまで-->
+
+</div>
+<!-- /.contents-wrapper -->
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js" defer></script>
+  <!-- script.js -->
+  <script src="./js/script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,447 @@
+@charset "UTF-8";
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.2rem;
+  font-family: "Yu Mincho" , "Hiragino Mincho ProN" , "MS Mincho" , sans-serif;
+  margin: 0;
+  padding: 0;
+  letter-spacing: .1em;
+  counter-reset: number 0;
+  min-width: 100%;
+  min-height: 100vh;
+}
+
+body > * {
+  box-sizing: border-box;
+  color: #2E4E67;
+}
+
+a:link, a:visited, a:hover, a:active {
+  text-decoration: none;
+  color: #455A64;
+}
+
+/*------------------------*/
+/* utilities / base style */
+/*------------------------*/
+.contents-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  width: 200px;
+  line-height: 40px;
+  color: #2E4E67;
+  background-color: #FFF6EB;
+  border: 1px solid #C39D6A;
+  border-radius: 5px;
+  outline: none;
+  margin-bottom: 20px;
+  transition: .2s;
+  font-family: "Yu Mincho" , "Hiragino Mincho ProN" , "MS Mincho" , sans-serif;
+}
+
+.btn:focus, .btn:hover {
+  background-color: #C39D6A;
+  color: #FFF6EB;
+  transition: .3s;
+}
+
+.inc-btn,
+.dec-btn {
+  display: inline-block;
+  width: 90px;
+  line-height: 28px;
+}
+
+.inc-btn {
+  margin-right: 16px;
+}
+
+.calc-equal-btn {
+  display: block;
+  margin-bottom: 70px;
+  background-color: #C39D6A;
+  color: #FFF6EB;
+}
+
+.calc-equal-btn:focus, .calc-equal-btn:hover {
+  background-color: #FFF6EB;
+  color: #2E4E67;
+  transition: .3s;
+}
+
+.reset-form-btn {
+  display: block;
+}
+
+.helper-btn {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid #A07741;
+  outline: none;
+  box-shadow: 0px 3px 3px #999;
+  background-color: #fff;
+  color: #A07741;
+  font-size: 3.2rem;
+  font-family: serif;
+  opacity: .9;
+  transition: .3s;
+}
+
+.helper-btn:focus, .helper-btn:hover {
+  background-color: #C39D6A;
+  color: #FFF6EB;
+  border: 1px solid transparent;
+  transform: translateY(-5px);
+  transition: .4s;
+}
+
+/*-------------------*/
+/* modal             */
+/*-------------------*/
+.faq-modal-wrapper {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100%;
+  padding: 30px;
+  background-color: #fff;
+  opacity: 0;
+  transition: .3s;
+  z-index: 10;
+  overflow-y: scroll;
+}
+
+.faq-modal {
+  width: 90%;
+  margin: 0 auto;
+  text-align: left;
+  padding-bottom: 100px;
+}
+
+.faq-modal .section-title {
+  margin-bottom: 10px;
+}
+
+.faq-modal .faq-text {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  letter-spacing: .1em;
+}
+
+.faq-modal-wrapper.is-open {
+  visibility: visible;
+  opacity: .9;
+}
+
+.close-btn {
+  position: fixed;
+  display: block;
+  top: 28px;
+  right: 36px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  margin-left: auto;
+  transition: .2s;
+}
+
+.close-btn::before {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 45px;
+  background-color: #2E4E67;
+  border-radius: 10px;
+  transform: rotate(45deg) translateX(2px);
+}
+
+.close-btn::after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 45px;
+  background-color: #2E4E67;
+  border-radius: 10px;
+  transform: rotate(-45deg) translateX(2px);
+}
+
+.close-btn:focus, .close-btn:hover {
+  opacity: .7;
+  transition: .3s;
+}
+
+/*-------------------*/
+/* nav               */
+/*-------------------*/
+.nav-wrapper {
+  width: 20%;
+  min-width: 250px;
+  padding: 30px 10px;
+  background-color: #FFF6EB;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-wrapper .nav-inner {
+  margin: 0 auto;
+}
+
+.logo {
+  position: relative;
+  padding: 12px;
+  margin: 0;
+  margin-top: 20px;
+  margin-right: -6px;
+  margin-bottom: 25px;
+  font-size: 3.3rem;
+  letter-spacing: .3em;
+  text-align: center;
+}
+
+.logo::before {
+  content: '/　/　/';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  font-size: 1.4rem;
+  transform: skewX(-20deg) translateX(-50%);
+}
+
+.example-card {
+  position: relative;
+  width: 200px;
+  height: 90px;
+  background-color: #fff;
+  border: 1px solid #e0cdb3;
+  border-radius: 0 3px 3px 3px;
+  text-align: left;
+  padding: 3px 0px;
+  margin-top: 30px;
+  margin-left: 2px;
+  margin-bottom: 30px;
+}
+
+.example-card tbody {
+  display: block;
+  min-height: 100%;
+}
+
+.example-card .card-heading {
+  display: inline-block;
+  width: 150px;
+  line-height: 26px;
+  border-bottom: 1px dashed #e0cdb3;
+  padding-left: 30px;
+  font-size: 1.4rem;
+}
+
+.example-card tr:last-child .card-heading {
+  border-bottom: 0;
+}
+
+.example-card::before {
+  content: '00';
+  position: absolute;
+  left: -1px;
+  top: -28px;
+  width: 30px;
+  height: 26px;
+  line-height: 26px;
+  font-weight: bold;
+  background-color: #fff;
+  border: 1px solid #e0cdb3;
+  border-bottom: 1px solid #fff;
+  border-radius: 3px 3px 0 0;
+  text-align: center;
+}
+
+.example-card::after {
+  content: '結果欄の表示項目';
+  position: absolute;
+  right: 0;
+  top: -30px;
+  font-size: 1.2rem;
+  line-height: 26px;
+  font-weight: bold;
+}
+
+.calc-information-box {
+  width: 200px;
+  text-align: left;
+  font-size: 1.6rem;
+  margin-bottom: 30px;
+}
+
+/*-------------------*/
+/* calc-form         */
+/*-------------------*/
+.calc-form-wrapper {
+  width: 78%;
+  padding: 30px;
+}
+
+.section-title {
+  position: relative;
+  display: inline-block;
+  margin: 0 0 30px;
+  padding-left: 20px;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  line-height: 25px;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  width: 5px;
+  height: 25px;
+  transform: translateX(-5px);
+  background-color: #A07741;
+  border-radius: 2px;
+}
+
+.primary-playfee-wrapper {
+  width: 100%;
+}
+
+.primary-playfees {
+  display: none;
+}
+
+.primary-playfee {
+  width: 70px;
+  height: 30px;
+  font-size: 1.8rem;
+  letter-spacing: .05em;
+  color: #2E4E67;
+  border: 1px solid #C39D6A;
+  border-radius: 2px;
+  outline: none;
+  padding: 0 0 0 8px;
+  margin-right: 24px;
+  margin-bottom: 16px;
+  font-family: "Yu Mincho" , "Hiragino Mincho ProN" , "MS Mincho" , sans-serif;
+}
+
+.primary-playfee:nth-child(4n) {
+  margin-right: 0;
+}
+
+.primary-playfee-wrapper
+.primary-playfees:last-child
+.primary-playfee:last-of-type {
+  margin-bottom: 45px;
+}
+
+.no-spin::-webkit-inner-spin-button,
+.no-spin::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  -moz-appearance: textfield;
+}
+
+/*-------------------*/
+/* result            */
+/*-------------------*/
+.result-card-wrapper {
+  width: 612px;
+}
+
+.result-cards {
+  display: none;
+}
+
+.result-card {
+  position: relative;
+  width: 120px;
+  height: 90px;
+  background-color: #fff;
+  border: 1px solid #e0cdb3;
+  border-radius: 0 3px 3px 3px;
+  text-align: left;
+  padding: 1px 0 0;
+  margin: 30px 25px 30px 2px;
+}
+
+.result-card tbody {
+  display: block;
+  min-height: 100%;
+}
+
+.result-card .first-playfee,
+.result-card .last-playfee,
+.result-card .adjustment {
+  position: relative;
+  display: inline-block;
+  width: 75px;
+  height: 26px;
+  line-height: 26px;
+  border-bottom: 1px dashed #e0cdb3;
+  padding-left: 40px;
+}
+
+.result-card .first-playfee::before,
+.result-card .last-playfee::before,
+.result-card .adjustment::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 4px;
+  font-size: 1.8rem;
+  color: #ccc;
+}
+
+.result-card .first-playfee::before {
+  content: '初';
+}
+
+.result-card .last-playfee::before {
+  content: '均';
+}
+
+.result-card .adjustment::before {
+  content: '調';
+}
+
+.result-card .last-playfee {
+  height: 27px;
+}
+
+.result-card .adjustment {
+  border-bottom: 0;
+}
+
+.result-card::before {
+  counter-increment: number 1;
+  content: counter(number);
+  position: absolute;
+  left: -1px;
+  top: -28px;
+  width: 30px;
+  height: 26px;
+  line-height: 26px;
+  font-weight: bold;
+  border: 1px solid #e0cdb3;
+  border-bottom: 1px solid #fff;
+  border-radius: 2px 2px 0 0;
+  text-align: center;
+}
